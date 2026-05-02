@@ -1,0 +1,163 @@
+.founder-section {
+    min-height: 100vh;
+    background-color: #0e0e38;
+    padding: 120px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-bg-texture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top left, rgba(200, 164, 75, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom right, rgba(200, 164, 75, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.founder-container {
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.founder-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.founder-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.founder-image {
+    width: 100%;
+    max-width: 600px;
+    /* Default for mobile/tablet */
+    height: auto;
+    aspect-ratio: 420/520;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(200, 164, 75, 0.15);
+    border: 2px solid rgba(200, 164, 75, 0.2);
+}
+
+.founder-text-content {
+    text-align: center;
+}
+
+.founder-label-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.founder-label-icon {
+    color: #C8A44B;
+    opacity: 0.7;
+}
+
+.founder-label {
+    font-size: clamp(12px, 1.2vw, 14px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #C8A44B;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.founder-name {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600;
+    color: #F5F1E8;
+    margin-bottom: 35px;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.founder-body-text {
+    font-size: clamp(16px, 1.8vw, 19px);
+    line-height: 1.9;
+    color: #D4CFC4;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 300;
+    margin-bottom: 25px;
+    letter-spacing: 0.2px;
+}
+
+.founder-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.founder-list-item {
+    font-size: clamp(16px, 1.8vw, 19px);
+    line-height: 1.9;
+    color: #D4CFC4;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 300;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 0;
+}
+
+/* Bullet handling for mobile - implied mostly invisible or inline, but let's just keep strict */
+.founder-bullet {
+    display: none;
+    /* Hide on mobile by default per previous logic */
+}
+
+/* DESKTOP STYLES */
+@media (min-width: 900px) {
+    .founder-content-wrapper {
+        grid-template-columns: 420px 1fr;
+        gap: 80px;
+    }
+
+    .founder-image {
+        max-width: 100%;
+        /* Fill the grid column */
+    }
+
+    .founder-text-content {
+        text-align: left;
+    }
+
+    .founder-label-container {
+        justify-content: flex-start;
+    }
+
+    .founder-list {
+        padding-left: 25px;
+    }
+
+    .founder-list-item {
+        padding-left: 20px;
+    }
+
+    .founder-bullet {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 4px;
+        height: 4px;
+        background-color: #C8A44B;
+        border-radius: 50%;
+    }
+}

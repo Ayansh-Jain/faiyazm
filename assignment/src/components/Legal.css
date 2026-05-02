@@ -1,0 +1,146 @@
+.legal-page {
+    padding: 120px 20px 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 80vh;
+    color: #1a2838;
+}
+
+@media (max-width: 768px) {
+    .legal-page {
+        padding: 100px 15px 60px;
+    }
+}
+
+.legal-page h1 {
+    font-family: 'Georgia', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    color: #0d133d;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 20px;
+}
+
+.legal-content {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+.legal-content h2 {
+    font-family: 'Georgia', serif;
+    color: #0d3d2d;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.legal-content p {
+    margin-bottom: 20px;
+}
+
+.legal-content ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.legal-content li {
+    margin-bottom: 10px;
+}
+
+/* Contact Page Specifics */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.contact-info-card {
+    background: #f8f9fa;
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(13, 19, 61, 0.1);
+}
+
+.contact-method {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-method h3 {
+    margin: 0 0 5px;
+    color: #0d133d;
+    font-size: 1.1rem;
+}
+
+.contact-method p {
+    margin: 0;
+    color: #555;
+}
+
+.contact-method a {
+    color: #0d3d2d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: #0d133d;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+.submit-btn {
+    background: #0d133d;
+    color: #d4af37;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #1a2b5d;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}

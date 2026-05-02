@@ -1,0 +1,35 @@
+/* Global responsive adjustments */
+
+.responsive-section {
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .responsive-section {
+    padding: 60px 20px !important;
+    /* Force override if needed, though we will remove inline */
+  }
+}
+
+/* Ensure images and videos are responsive */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Typography adjustments for mobile if clamp isn't enough */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 32px !important;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+}
