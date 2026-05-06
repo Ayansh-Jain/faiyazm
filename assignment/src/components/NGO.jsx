@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Globe, Handshake, Building2, User, DollarSign, CheckCircle, PlusCircle } from 'lucide-react';
 import ApplicationForm from './ApplicationForm';
+import { API_BASE } from '../config';
 import './NGO.css';
 
 const SocialImpactSection = () => {
@@ -25,8 +26,8 @@ const SocialImpactSection = () => {
             try {
                 setLoading(true);
                 const [ngoRes, csrRes] = await Promise.all([
-                    fetch('/api/public/ngos'),
-                    fetch('/api/public/csrs')
+                    fetch(`${API_BASE}/api/public/ngos`),
+                    fetch(`${API_BASE}/api/public/csrs`)
                 ]);
                 
                 if (ngoRes.ok) {
@@ -141,7 +142,7 @@ const SocialImpactSection = () => {
                                         >
                                             <div className="card-header ngo-header">
                                                 <img
-                                                    src={ngo.logoPath ? ngo.logoPath : "https://placehold.co/100"}
+                                                    src={ngo.logoPath ? `${API_BASE}${ngo.logoPath}` : "https://placehold.co/100"}
                                                     alt={ngo.name}
                                                     className="card-logo"
                                                     onError={(e) => e.target.src = "https://placehold.co/100?text=NGO"}
@@ -206,7 +207,7 @@ const SocialImpactSection = () => {
                                         >
                                             <div className="card-header csr-header">
                                                 {company.logoPath ? (
-                                                    <img src={company.logoPath} alt={company.companyName} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover', marginRight: '15px' }} />
+                                                    <img src={`${API_BASE}${company.logoPath}`} alt={company.companyName} style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover', marginRight: '15px' }} />
                                                 ) : (
                                                     <Building2 size={40} className="csr-icon-placeholder" />
                                                 )}

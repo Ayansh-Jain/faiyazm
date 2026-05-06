@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, UploadCloud } from 'lucide-react';
+import { API_BASE } from '../config';
 import './ApplicationForm.css';
 
 const ApplicationForm = ({ type, onClose }) => {
@@ -45,7 +46,7 @@ const ApplicationForm = ({ type, onClose }) => {
         }
 
         try {
-            const endpoint = isNGO ? '/api/ngo' : '/api/csr';
+            const endpoint = isNGO ? `${API_BASE}/api/ngo` : `${API_BASE}/api/csr`;
             const response = await fetch(endpoint, {
                 method: 'POST',
                 body: data,
