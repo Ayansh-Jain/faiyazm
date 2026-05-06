@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, LogOut, Loader2 } from 'lucide-react';
+import { API_BASE } from '../../config';
 import { fetchNGOs, updateNGOStatus, loadGoogleScript, initGoogleClient, initTokenClient } from '../../utils/googleSheetsService';
 import './Admin.css';
 
@@ -35,8 +36,8 @@ const AdminDashboard = () => {
         setLoading(true);
         try {
             const [ngoRes, csrRes] = await Promise.all([
-                fetch('http://localhost:5000/api/admin/ngos'),
-                fetch('http://localhost:5000/api/admin/csrs')
+                fetch(`${API_BASE}/api/admin/ngos`),
+                fetch(`${API_BASE}/api/admin/csrs`)
             ]);
 
             if (ngoRes.ok) {
@@ -84,7 +85,7 @@ const AdminDashboard = () => {
         
         try {
             const type = viewMode === 'ngo' ? 'ngo' : 'csr';
-            const res = await fetch(`http://localhost:5000/api/admin/${type}/${item._id}/status`, {
+            const res = await fetch(`${API_BASE}/api/admin/${type}/${item._id}/status`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ status: newStatus })
@@ -227,7 +228,7 @@ const AdminDashboard = () => {
                             >
                                 <div className="card-header">
                                     <div style={{display: 'flex', gap: '15px', alignItems: 'center'}}>
-                                        {item.logoPath && <img src={`http://localhost:5000${item.logoPath}`} alt="Logo" style={{width: 40, height: 40, borderRadius: '50%', objectFit: 'cover'}} />}
+                                        {item.logoPath && <img src={`${API_BASE}${item.logoPath}`} alt="Logo" style={{width: 40, height: 40, borderRadius: '50%', objectFit: 'cover'}} />}
                                         <div>
                                             <h3 className="font-bold text-lg text-gray-900">{viewMode === 'ngo' ? item.name : item.companyName}</h3>
                                             <span className="text-sm text-gray-500">{item.category} • {item.location}</span>
@@ -242,7 +243,7 @@ const AdminDashboard = () => {
                                     <div className="text-sm">
                                         <p><strong>Established:</strong> {item.established}</p>
                                         {item.website && <p><strong>Website:</strong> <a href={item.website} target="_blank" rel="noreferrer" className="text-blue-600">{item.website}</a></p>}
-                                        {item.logoPath && <p><strong>File:</strong> <a href={`http://localhost:5000${item.logoPath}`} target="_blank" rel="noreferrer" className="text-blue-600">View Attachment</a></p>}
+                                        {item.logoPath && <p><strong>File:</strong> <a href={`${API_BASE}${item.logoPath}`} target="_blank" rel="noreferrer" className="text-blue-600">View Attachment</a></p>}
                                     </div>
                                 </div>
                                 <div className="card-footer">

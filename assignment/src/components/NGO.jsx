@@ -50,7 +50,7 @@ const SocialImpactSection = () => {
 
     const filteredNGOs = ngos.filter(ngo => {
         return (selectedCategory === '' || ngo.category === selectedCategory) &&
-            (location === '' || ngo.city?.toLowerCase().includes(location.toLowerCase()));
+            (location === '' || ngo.location?.toLowerCase().includes(location.toLowerCase()));
     });
 
     return (
@@ -136,7 +136,7 @@ const SocialImpactSection = () => {
                                 <div className="impact-grid">
                                     {filteredNGOs.map(ngo => (
                                         <motion.div
-                                            key={ngo.id}
+                                            key={ngo._id}
                                             className="impact-card"
                                             whileHover={{ y: -5 }}
                                         >
